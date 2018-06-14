@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import Header from './components/Header'
 import IconCard from './components/IconCard'
 import './App.css'
-import IconCard from './components/IconCard';
 
 
 
 class App extends Component {
     state= {
         counter: 0,
-        twitchGames:[
+        games:[
             {
                 key: 1,
                 name: "ryu",
@@ -104,7 +103,7 @@ class App extends Component {
                 <Header score={this.state.counter} />
                 <div className={"container"}>
                     <div className={"row"}>
-                        {this.state.games.map((game) => <IconCard  key={game.key} id ={game.key} character={game.name} selected={game.selected} counterCheck={this.counterCheck}/>)}
+                        {this.state.games.map((game) => <IconCard  key={game.key} id ={game.key} icon={game.name} selected={game.selected} counterCheck={this.counterCheck}/>)}
                     </div>
                 </div>
             </wrapper>
