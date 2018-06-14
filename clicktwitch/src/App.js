@@ -8,15 +8,15 @@ import './App.css'
 class App extends Component {
     state= {
         counter: 0,
-        games:[
+        skins:[
             {
                 key: 1,
-                name: "ryu",
+                name: "munitions",
                 selected: false
             },
             {
                 key: 2,
-                name: "blanka",
+                name: "renegade",
                 selected: false
             }
             ,
@@ -28,52 +28,52 @@ class App extends Component {
             ,
             {
                 key: 4,
-                name: "vega",
+                name: "recon",
                 selected: false
             }
             ,
             {
                 key: 5,
-                name: "mbison",
+                name: "brawler",
                 selected: false
             }
             ,
             {
                 key: 6,
-                name: "balrog",
+                name: "aerial",
                 selected: false
             }
             ,
             {
                 key: 7,
-                name:"sagat",
+                name:"merru",
                 selected: false
             }
             ,
             {
                 key: 8,
-                name: "chunli",
+                name: "alpine",
                 selected: false
             },
             {
 
                 key: 9,
-                name: "zangief",
+                name: "circuit",
                 selected: false
             },
             {
                 key: 10,
-                name: "guile",
+                name: "reaper",
                 selected: false
             },
             {
                 key: 11,
-                name: "ehonda",
+                name: "bunny",
                 selected: false
             },
             {
                 key: 12,
-                name: "ken",
+                name: "skull",
                 selected: false
             }
 
@@ -81,17 +81,17 @@ class App extends Component {
     };
 
     counterCheck=(name,selectedState)=>{
-        let gamesArray = this.state.games;
-        gamesArray.sort(function(a, b){return 0.5 - Math.random()});
+        let skinsArray = this.state.skins;
+        skinsArray.sort(function(a, b){return 0.5 - Math.random()});
 
         if (selectedState){
-            gamesArray.forEach(game=> game.selected = false);
-            this.setState({games: gamesArray, counter: 0})
+            skinsArray.forEach(skin=> skin.selected = false);
+            this.setState({skins: skinsArray, counter: 0})
         } else {
-            gamesArray.forEach((game) => {
-                if (game.name === name && game.selected === false) {
-                    game.selected = true;
-                    this.setState({games: gamesArray, counter: this.state.counter + 1})
+            skinsArray.forEach((skin) => {
+                if (skin.name === name && skin.selected === false) {
+                    skin.selected = true;
+                    this.setState({skins: skinsArray, counter: this.state.counter + 1})
                 }
             });
         }
@@ -103,7 +103,7 @@ class App extends Component {
                 <Header score={this.state.counter} />
                 <div className={"container"}>
                     <div className={"row"}>
-                        {this.state.games.map((game) => <IconCard  key={game.key} id ={game.key} icon={game.name} selected={game.selected} counterCheck={this.counterCheck}/>)}
+                        {this.state.skins.map((skin) => <IconCard  key={skin.key} id ={skin.key} icon={skin.name} selected={skin.selected} counterCheck={this.counterCheck}/>)}
                     </div>
                 </div>
             </wrapper>
