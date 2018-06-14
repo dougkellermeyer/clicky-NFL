@@ -11,69 +11,69 @@ class App extends Component {
         skins:[
             {
                 key: 1,
-                name: "munitions",
+                name: "skin1",
                 selected: false
             },
             {
                 key: 2,
-                name: "renegade",
+                name: "skin2",
                 selected: false
             }
             ,
             {
                 key: 3,
-                name: "dhalsim",
+                name: "skin3",
                 selected: false
             }
             ,
             {
                 key: 4,
-                name: "recon",
+                name: "skin4",
                 selected: false
             }
             ,
             {
                 key: 5,
-                name: "brawler",
+                name: "skin5",
                 selected: false
             }
             ,
             {
                 key: 6,
-                name: "aerial",
+                name: "skin6",
                 selected: false
             }
             ,
             {
                 key: 7,
-                name:"merru",
+                name:"skin7",
                 selected: false
             }
             ,
             {
                 key: 8,
-                name: "alpine",
+                name: "skin8",
                 selected: false
             },
             {
 
                 key: 9,
-                name: "circuit",
+                name: "skin9",
                 selected: false
             },
             {
                 key: 10,
-                name: "reaper",
+                name: "skin10",
                 selected: false
             },
             {
                 key: 11,
-                name: "bunny",
+                name: "skin11",
                 selected: false
             },
             {
                 key: 12,
-                name: "skull",
+                name: "skin12",
                 selected: false
             }
 
