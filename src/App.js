@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Header from './components/Header'
 import IconCard from './components/IconCard'
 import './App.css'
+import Jumbotron from './components/Jumbotron'
 
 
-
+//sets our state to 0 or emtpy
 class App extends Component {
     state= {
         counter: 0,
@@ -101,9 +102,16 @@ class App extends Component {
         return(
             <wrapper>
                 <Header score={this.state.counter} />
+                <Jumbotron/>
                 <div className={"container"}>
                     <div className={"row"}>
-                        {this.state.skins.map((skin) => <IconCard  key={skin.key} id ={skin.key} icon={skin.name} selected={skin.selected} counterCheck={this.counterCheck}/>)}
+                        {this.state.skins.map((skin) => 
+                        <IconCard  
+                        key={skin.key} 
+                        id ={skin.key} 
+                        icon={skin.name} 
+                        selected={skin.selected} 
+                        counterCheck={this.counterCheck}/>)}
                     </div>
                 </div>
             </wrapper>
