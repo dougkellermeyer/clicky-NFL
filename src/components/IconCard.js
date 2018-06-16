@@ -15,7 +15,7 @@ class IconCard extends React.Component {
 
     render(){
         return(
-            <div onClick={()=>this.props.counterCheck(this.props.icon,this.props.selected)} className={"col-3 mt-3"}>
+            <div onClick={()=>this.props.counterCheck(this.props.icon,this.props.selected)} className={"icons"}>
                 <Image imgSrc={this.props.icon} />
             </div>
         )
