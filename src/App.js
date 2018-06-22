@@ -88,6 +88,7 @@ class App extends Component {
         if (selectedState){
             skinsArray.forEach(skin=> skin.selected = false);
             this.setState({skins: skinsArray, counter: 0})
+            alert("You lose! Try Again!")
         } else {
             skinsArray.forEach((skin) => {
                 if (skin.name === name && skin.selected === false) {
@@ -96,13 +97,16 @@ class App extends Component {
                 }
             });
         }
+        if (this.state.score === 12){
+            alert("You win! You get them all! Play again?")
+        }
     };
 
     render(){
         return(
             <wrapper>
-                <Header score={this.state.counter} />
                 <Jumbotron/>
+                <Header score={this.state.counter} />
                 <div className={"container"}>
                     <div className={"row"}>
                         {this.state.skins.map((skin) => 

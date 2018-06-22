@@ -1,5 +1,6 @@
 import React from 'react';
-import Image from './Image'
+import Image from './Image';
+import "./Image.css";
 class IconCard extends React.Component {
     constructor(props){
         super(props);
