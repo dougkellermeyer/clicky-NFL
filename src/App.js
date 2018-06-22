@@ -7,9 +7,9 @@ import Jumbotron from './components/Jumbotron'
 
 //sets our state to 0 or emtpy
 class App extends Component {
-    state= {
+    state = {
         counter: 0,
-        skins:[
+        skins: [
             {
                 key: 1,
                 name: "skin1",
@@ -47,7 +47,7 @@ class App extends Component {
             ,
             {
                 key: 7,
-                name:"skin7",
+                name: "skin7",
                 selected: false
             }
             ,
@@ -81,41 +81,45 @@ class App extends Component {
         ]
     };
 
-    counterCheck=(name,selectedState)=>{
+    counterCheck = (name, selectedState) => {
         let skinsArray = this.state.skins;
-        skinsArray.sort(function(a, b){return 0.5 - Math.random()});
+        skinsArray.sort(function (a, b) { return 0.5 - Math.random() });
 
-        if (selectedState){
-            skinsArray.forEach(skin=> skin.selected = false);
-            this.setState({skins: skinsArray, counter: 0})
+        if (selectedState) {
+            skinsArray.forEach(skin => skin.selected = false);
+            this.setState({ skins: skinsArray, counter: 0 })
             alert("You lose! Try Again!")
         } else {
             skinsArray.forEach((skin) => {
                 if (skin.name === name && skin.selected === false) {
                     skin.selected = true;
-                    this.setState({skins: skinsArray, counter: this.state.counter + 1})
+                    this.setState({ skins: skinsArray, counter: this.state.counter + 1 })
+
                 }
             });
         }
-        if (this.state.score === 12){
-            alert("You win! You get them all! Play again?")
-        }
+        // skinsArray.forEach(skin => {
+        //     if (skin.name === name && skin.selected === false) {
+        //         this.setState({ skins: skinsArray, counter: 0 })
+        //     }
+        // })
+
     };
 
-    render(){
-        return(
+    render() {
+        return (
             <wrapper>
-                <Jumbotron/>
+                <Jumbotron />
                 <Header score={this.state.counter} />
                 <div className={"container"}>
                     <div className={"row"}>
-                        {this.state.skins.map((skin) => 
-                        <IconCard  
-                        key={skin.key} 
-                        id ={skin.key} 
-                        icon={skin.name} 
-                        selected={skin.selected} 
-                        counterCheck={this.counterCheck}/>)}
+                        {this.state.skins.map((skin) =>
+                            <IconCard
+                                key={skin.key}
+                                id={skin.key}
+                                icon={skin.name}
+                                selected={skin.selected}
+                                counterCheck={this.counterCheck} />)}
                     </div>
                 </div>
             </wrapper>
