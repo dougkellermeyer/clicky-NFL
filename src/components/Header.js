@@ -5,6 +5,7 @@ const Header = (props)=> (
     <nav style={{background: "purple", color: "white"}} className={"navbar navbar-default sticky-top"}>
         <div className={"conatiner"}>
             <div>score:{props.score}</div>
+            <div>{props.message}</div>
         </div>
     </nav>
 );

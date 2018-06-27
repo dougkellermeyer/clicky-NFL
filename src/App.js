@@ -11,112 +11,130 @@ class App extends Component {
         counter: 0,
         skins: [
             {
-                key: 1,
+                id: 1,
                 name: "skin1",
                 selected: false
             },
             {
-                key: 2,
+                id: 2,
                 name: "skin2",
                 selected: false
             }
             ,
             {
-                key: 3,
+                id: 3,
                 name: "skin3",
                 selected: false
             }
             ,
             {
-                key: 4,
+                id: 4,
                 name: "skin4",
                 selected: false
             }
             ,
             {
-                key: 5,
+                id: 5,
                 name: "skin5",
                 selected: false
             }
             ,
             {
-                key: 6,
+                id: 6,
                 name: "skin6",
                 selected: false
             }
             ,
             {
-                key: 7,
+                id: 7,
                 name: "skin7",
                 selected: false
             }
             ,
             {
-                key: 8,
+                id: 8,
                 name: "skin8",
                 selected: false
             },
             {
 
-                key: 9,
+                id: 9,
                 name: "skin9",
                 selected: false
             },
             {
-                key: 10,
+                id: 10,
                 name: "skin10",
                 selected: false
             },
             {
-                key: 11,
+                id: 11,
                 name: "skin11",
                 selected: false
             },
             {
-                key: 12,
+                id: 12,
                 name: "skin12",
                 selected: false
             }
 
-        ]
+        ],
+
+        message: ''
+
     };
 
     counterCheck = (name, selectedState) => {
+        //truffle shuffle function
         let skinsArray = this.state.skins;
+        let {counter} = this.state;
+        if (counter === 0){
+            this.setState({message:''})
+        }
         skinsArray.sort(function (a, b) { return 0.5 - Math.random() });
 
         if (selectedState) {
-            skinsArray.forEach(skin => skin.selected = false);
-            this.setState({ skins: skinsArray, counter: 0 })
-            alert("You lose! Try Again!")
+            //this line is the reset
+            this.reset()
+            this.setState({message: 'You lose!'})
         } else {
+            counter = counter + 1
             skinsArray.forEach((skin) => {
-                if (skin.name === name && skin.selected === false) {
+                if (skin.name === name) {
                     skin.selected = true;
-                    this.setState({ skins: skinsArray, counter: this.state.counter + 1 })
-
+                    this.setState({
+                        skins: skinsArray,
+                        counter
+                     })
                 }
+
             });
+            if (counter === 12){
+                this.reset();
+                this.setState({message: 'You win!'})
+            } 
         }
-        // skinsArray.forEach(skin => {
-        //     if (skin.name === name && skin.selected === false) {
-        //         this.setState({ skins: skinsArray, counter: 0 })
-        //     }
-        // })
+    
 
     };
+
+    reset(){
+        const {skins} = this.state;
+        skins.forEach(skin => skin.selected = false);
+            this.setState({ skins, counter: 0 })
+    }
 
     render() {
         return (
             <wrapper>
                 <Jumbotron />
-                <Header score={this.state.counter} />
+                <Header message = {this.state.message} score={this.state.counter} />
                 <div className={"container"}>
                     <div className={"row"}>
                         {this.state.skins.map((skin) =>
                             <IconCard
-                                key={skin.key}
-                                id={skin.key}
+                                key={skin.id}
+                                id={skin.id}
                                 icon={skin.name}
                                 selected={skin.selected}
                                 counterCheck={this.counterCheck} />)}
